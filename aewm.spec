@@ -1,7 +1,7 @@
 Summary:	AEWM - the ascetic window manager
 Summary(pl):	AEWM - "ascetyczny" menad¿er okien
 Name:		aewm
-Version:	1.1.1
+Version:	1.1.2
 Release:	1
 License:	GPL
 Group:		X11/Window Managers
