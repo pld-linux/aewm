@@ -5,10 +5,20 @@ Version:	1.2.0
 Release:	1
 License:	GPL
 Group:		X11/Window Managers
+Group(cs):	X11/Okenní mana¾ery
+Group(da):	X11/Vindueshåndtererene
 Group(de):	X11/Fenstermanager
-Group(es):	X11/Administraadores De Ventanas
-Group(fr):	X11/Gestionnaires De Fenêtres
-Group(pl):	X11/Zarz±dcy Okien
+Group(es):	X11/Administradores de Ventanas
+Group(fr):	X11/Gestionnaires de fenêtres
+Group(is):	X11/Gluggastjórunum
+Group(it):	X11/Window manager
+Group(no):	X11/Vindushåndtererene
+Group(pl):	X11/Zarz±dcy okien
+Group(pt):	X11/Gestores de Janelas
+Group(ru):	X11/ïËÏÎÎÙÅ ÍÅÎÅÄÖÅÒÙ
+Group(sl):	X11/Upravljalniki
+Group(sv):	X11/Fönsterhanterarna
+Group(uk):	X11/÷¦ËÏÎÎ¦ ÍÅÎÅÄÖÅÒÉ
 Source0:	http://www.red-bean.com/~decklin/aewm/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 URL:		http://www.red-bean.com/%7Edecklin/aewm/
