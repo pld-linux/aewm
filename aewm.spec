@@ -7,7 +7,7 @@ Copyright:	Freely distributable
 Group:		X11/Window Managers
 Group(pl):	X11/Menad¿ero Onkien
 Source:		http://members.home.com/decklin/%name/%{name}-%{version}.tar.gz
-Source2:	aewm.desktop
+Source1:	aewm.desktop
 URL:		http://members.home.com/decklin/aewm/
 Patch:		%{name}-DESTDIR.patch
 BuildRequires:	gtk+-devel
@@ -38,14 +38,14 @@ gzip -9 README
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_prefix}/bin
-install -d $RPM_BUILD_ROOT%datedir}/gnome/wm-properties
+install -d $RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
 
 make DESTDIR=$RPM_BUILD_ROOT install
 
 (cd goodies;install -s {xaw,gtk}-{panel,palette,switch} $RPM_BUILD_ROOT/%{_prefix}/bin)
 (cd goodies; install -s gtk-palette2 $RPM_BUILD_ROOT%{_prefix}/bin)
 
-install %{SOURCE1} $RPM_BUILD_ROOT%datedir}/gnome/wm-properties
+install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
 
 %clean
 rm -rf $RPM_BUILD_ROOT
