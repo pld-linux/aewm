@@ -1,0 +1,12 @@
+diff -ur aewm-1.2.3.orig/src/Makefile aewm-1.2.3/src/Makefile
+--- aewm-1.2.3.orig/src/Makefile	2004-08-10 19:49:42.027105896 +0200
++++ aewm-1.2.3/src/Makefile	2004-08-10 19:49:54.350232496 +0200
+@@ -39,7 +39,7 @@
+ MANDIR   = $(DESTDIR)$(XROOT)/man/man1
+ CFGDIR   = $(DESTDIR)/etc/X11/aewm
+ INCLUDES = -I$(MYLIBDIR) -I$(XROOT)/include $(EXTRA_INC)
+-LDPATH   = -L$(XROOT)/lib
++LDPATH   = -L$(XROOT)/lib64
+ LIBS     = -lX11 $(EXTRA_LIBS)
+ 
+ PROG     = aewm
