@@ -2,11 +2,12 @@ Summary:	AEWM - the ascetic window manager
 Summary(pl):	AEWM - "ascetyczny" zarz±dca okien
 Name:		aewm
 Version:	1.2.2
-Release:	1
+Release:	2
 License:	MIT
 Group:		X11/Window Managers
 Source0:	http://www.red-bean.com/~decklin/aewm/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
+Patch0:		%{name}-home_etc.patch
 URL:		http://www.red-bean.com/~decklin/aewm/
 BuildRequires:	gtk+-devel
 BuildRequires:	glibc-devel
@@ -25,6 +26,7 @@ Jego zalet± jest prostota i szybko¶æ.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__make} CFLAGS="%{rpmcflags}"
@@ -33,7 +35,7 @@ Jego zalet± jest prostota i szybko¶æ.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_wmpropsdir}}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install DESTDIR=$RPM_BUILD_ROOT XROOT=%{_prefix} MANDIR=$RPM_BUILD_ROOT%{_mandir}/man1
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/{aemenu-*,aepanel-*,aesession.*,set-gnome-pda.*}
