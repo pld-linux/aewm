@@ -1,7 +1,8 @@
 [Desktop Entry]
 Name=Ascethic Window Maker
-Name[ko]=À©µµ¿ì ¸ŞÀÌÄ¿
-Name[pl]= Prosty Window Menadúer
+Name[ko]=ìœˆë„ìš° ë©”ì´ì»¤
+Name[pl]= Prosty Window MenadÃºer
 Exec=aewm
 TryExec=aewm
 
+# vi: encoding=utf-8
