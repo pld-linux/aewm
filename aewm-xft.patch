@@ -1,0 +1,21 @@
+diff -ur aewm-1.2.3.orig/src/Makefile aewm-1.2.3/src/Makefile
+--- aewm-1.2.3.orig/src/Makefile	2003-03-27 21:23:44.000000000 +0100
++++ aewm-1.2.3/src/Makefile	2004-08-10 19:43:58.669304216 +0200
+@@ -17,13 +17,13 @@
+ 
+ # Uncomment to add MWM hints support. This requires Lesstif headers at
+ # build time, but does not link against Lesstif.
+-#DEFINES += -DMWM_HINTS
++DEFINES += -DMWM_HINTS
+ 
+ # Uncomment to add freetype support (requires XFree86 4.0.2 or later).
+ # This depends on -lXext above, even if you have disabled shape support.
+-#DEFINES += -DXFT
+-#EXTRA_INC += `pkg-config --cflags xft`
+-#EXTRA_LIBS += `pkg-config --libs xft`
++DEFINES += -DXFT
++EXTRA_INC += `pkg-config --cflags xft`
++EXTRA_LIBS += `pkg-config --libs xft`
+ 
+ # Uncomment for debugging info (abandon all hope, ye who enter here).
+ #DEFINES += -DDEBUG
