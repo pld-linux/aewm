@@ -5,10 +5,12 @@ Version:	0.9.6
 Release:	1
 Copyright:	Freely distributable
 Group:		X11/Window Managers
+Group(es):	X11/Administraadores De Ventanas
+Group(fr):	X11/Gestionnaires De Fenêtres
 Group(pl):	X11/Zarz±dcy Okien
 Source0:	http://members.home.com/decklin/%name/%{name}-%{version}.tar.gz
-Source1:	aewm.desktop
-Patch0:		aewm-Makefile.patch
+Source1:	%{name}.desktop
+Patch0:		%{name}-Makefile.patch
 URL:		http://members.home.com/decklin/aewm/
 BuildRequires:	gtk+-devel
 BuildRequires:	glibc-devel
