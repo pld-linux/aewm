@@ -1,8 +1,8 @@
 Summary:	AEWM - the ascetic window manager
 Summary(pl):	AEWM - "ascetyczny" menad¿er okien
 Name:		aewm
-Version:	1.1.2
-Release:	2
+Version:	1.2.0
+Release:	1
 License:	GPL
 Group:		X11/Window Managers
 Group(de):	X11/Fenstermanager
@@ -34,7 +34,6 @@ Jego zalet± jest prostota i szybko¶æ.
 
 %build
 %{__make} CFLAGS="%{rpmcflags}"
-%{__make} -C goodies CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -42,11 +41,9 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_wmpropsdir}}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-(cd goodies; install {xaw,gtk}-{panel,palette,switch} $RPM_BUILD_ROOT/%{_bindir})
-
 install %{SOURCE1} $RPM_BUILD_ROOT/%{_wmpropsdir}
 
-gzip -9nf README
+gzip -9nf README ChangeLog
 
 %clean
 rm -rf $RPM_BUILD_ROOT
