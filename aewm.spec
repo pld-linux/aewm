@@ -9,7 +9,6 @@ Source0:	http://www.red-bean.com/~decklin/aewm/%{name}-%{version}.tar.gz
 # Source0-md5:	94fa24a6b83652bdb9d802be8cfcf048
 Source1:	%{name}.desktop
 URL:		http://www.red-bean.com/~decklin/aewm/
-BuildRequires:	glibc-devel
 BuildRequires:	gtk+-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
