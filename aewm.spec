@@ -12,8 +12,6 @@ Patch0:		aewm-Makefile.patch
 URL:		http://members.home.com/decklin/aewm/
 BuildRequires:	gtk+-devel
 BuildRequires:	glibc-devel
-BuildRequires:	glib-devel
-BuildRequires:	XFree86-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define	_prefix	/usr/X11R6
