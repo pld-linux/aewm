@@ -33,14 +33,14 @@ Jego zalet± jest prostota i szybko¶æ.
 
 %build
 make
-make -C goodies
+%{__make} -C goodies
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1 \
 	$RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
 
-make install XROOT=$RPM_BUILD_ROOT%{_prefix}
+%{__make} install XROOT=$RPM_BUILD_ROOT%{_prefix}
 
 (cd goodies;install -s {xaw,gtk}-{panel,palette,switch} $RPM_BUILD_ROOT/%{_bindir})
 (cd goodies; install -s gtk-palette2 $RPM_BUILD_ROOT%{_bindir})
