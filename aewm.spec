@@ -10,7 +10,7 @@ Source0:	http://www.red-bean.com/~decklin/aewm/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
 Source2:	%{name}-xsession.desktop
 Patch0:		%{name}-xft.patch
-Patch0:		%{name}-amd64.patch
+Patch1:		%{name}-amd64.patch
 URL:		http://www.red-bean.com/~decklin/aewm/
 BuildRequires:	gtk+-devel
 BuildRequires:	lesstif-devel
