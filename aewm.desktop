@@ -1,8 +1,7 @@
 [Desktop Entry]
 Name=Ascethic Window Maker
 Name[ko]=윈도우 메이커
-Name[pl]= Prosty Window Menadúer
+Name[pl]=Odchudzony zarządca okien
 Exec=aewm
 TryExec=aewm
-
 # vi: encoding=utf-8
