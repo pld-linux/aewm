@@ -44,7 +44,7 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_wmpropsdir}}
 
 (cd goodies; install {xaw,gtk}-{panel,palette,switch} $RPM_BUILD_ROOT/%{_bindir})
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
+install %{SOURCE1} $RPM_BUILD_ROOT%/{_wmpropsdir}
 
 gzip -9nf README
 
@@ -56,4 +56,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc README.gz
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man1/*
-%{_datadir}/gnome/wm-properties/aewm.desktop
+%{_wmpropsdir}/*
