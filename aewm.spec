@@ -7,7 +7,7 @@ License:	MIT
 Group:		X11/Window Managers
 Source0:	http://www.red-bean.com/~decklin/aewm/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
-URL:		http://www.red-bean.com/%7Edecklin/aewm/
+URL:		http://www.red-bean.com/~decklin/aewm/
 BuildRequires:	gtk+-devel
 BuildRequires:	glibc-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
