@@ -1,3 +1,25 @@
+diff -ur aewm-1.2.3.orig/clients/Makefile aewm-1.2.3/clients/Makefile
+--- aewm-1.2.3.orig/clients/Makefile	2003-03-27 21:29:15.000000000 +0100
++++ aewm-1.2.3/clients/Makefile	2004-08-10 20:26:29.436528656 +0200
+@@ -17,8 +17,8 @@
+ 
+ INCLUDES = -I$(AELIBDIR) -I$(MYLIBDIR)
+ X11PATH  = -I$(XROOT)/include
+-X11LIBS  = -L$(XROOT)/lib -lX11
+-XAWLIBS  = -L$(XROOT)/lib -lX11 -lXt -lXaw
++X11LIBS  = -L$(XROOT)/lib64 -lX11
++XAWLIBS  = -L$(XROOT)/lib64 -lX11 -lXt -lXaw
+ ifdef USE_OLD_GTK
+ GTKPATH  = `gtk-config --cflags` -DUSE_OLD_GTK=$(USE_OLD_GTK)
+ GTKLIBS  = `gtk-config --libs`
+Only in aewm-1.2.3/clients: set-gnome-pda
+Only in aewm-1.2.3/clients: set-gnome-pda.o
+Only in aewm-1.2.3/lib: gnome-pda.o
+Only in aewm-1.2.3/lib: parser.o
+Only in aewm-1.2.3/src: aewm
+Only in aewm-1.2.3/src: client.o
+Only in aewm-1.2.3/src: events.o
+Only in aewm-1.2.3/src: init.o
 diff -ur aewm-1.2.3.orig/src/Makefile aewm-1.2.3/src/Makefile
 --- aewm-1.2.3.orig/src/Makefile	2004-08-10 19:49:42.027105896 +0200
 +++ aewm-1.2.3/src/Makefile	2004-08-10 19:49:54.350232496 +0200
