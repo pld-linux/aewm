@@ -18,6 +18,7 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
 %define		_mandir		%{_prefix}/man
+%define		_wmpropsdir	%{_datadir}/wm-properties
 
 %description
 aewm is a minimal window manager for X11.
@@ -32,19 +33,18 @@ Jego zalet± jest prostota i szybko¶æ.
 %setup -q
 
 %build
-%{__make} CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}"
-%{__make} -C goodies CFLAGS="%{?debug:-O0 -g}%{!?debug:$RPM_OPT_FLAGS}"
+%{__make} CFLAGS="%{rpmcflags}"
+%{__make} -C goodies CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
-	$RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_wmpropsdir}}
 
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 (cd goodies; install {xaw,gtk}-{panel,palette,switch} $RPM_BUILD_ROOT/%{_bindir})
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
+install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
 
 gzip -9nf README
 
