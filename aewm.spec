@@ -1,5 +1,5 @@
-Summary:	aewm
-Summary(pl):	aewm
+Summary:	AEWM - the ascetic windiw manager.
+Summary(pl):	AEWM - "ascetyczny" menad¿er okien.
 Name:		aewm
 Version:	0.9.5
 Release:	1
@@ -16,8 +16,14 @@ Buildroot:	/tmp/%{name}-%{version}-root
 %define	_prefix	/usr/X11R6
 
 %description
+aewm is a minimal window manager for X11. 
 
 %description -l pl
+aewm jet minimalnym menad¿erem okien dla X11.
+Nie potrafi obs³ugiwaæ ikon, wielu sesji, tematów, t³a itp.
+Nie jest zbyt configurowa³ny.
+
+Jego zalet± jest prostota i szybko¶æ.
 
 %prep
 %setup -q
