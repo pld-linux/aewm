@@ -1,14 +1,14 @@
-Summary:	AEWM - the ascetic windiw manager.
-Summary(pl):	AEWM - "ascetyczny" menad¿er okien.
+Summary:	AEWM - the ascetic windiw manager
+Summary(pl):	AEWM - "ascetyczny" menad¿er okien
 Name:		aewm
 Version:	0.9.5
 Release:	1
 Copyright:	Freely distributable
 Group:		X11/Window Managers
 Group(pl):	X11/Menad¿ero Onkien
-Source:		http://members.home.com/decklin/%name/%name-%version.tar.gz
+Source:		http://members.home.com/decklin/%name/%{name}-%{version}.tar.gz
 URL:		http://members.home.com/decklin/aewm/
-Patch:		%name-DESTDIR.patch
+Patch:		%{name}-DESTDIR.patch
 BuildRequires:	gtk+-devel
 BuildRequires:	XFree86-devel
 Buildroot:	/tmp/%{name}-%{version}-root
@@ -19,9 +19,8 @@ Buildroot:	/tmp/%{name}-%{version}-root
 aewm is a minimal window manager for X11. 
 
 %description -l pl
-aewm jet minimalnym menad¿erem okien dla X11.
-Nie potrafi obs³ugiwaæ ikon, wielu sesji, tematów, t³a itp.
-Nie jest zbyt configurowa³ny.
+aewm jet minimalnym menad¿erem okien dla X11. Nie potrafi obs³ugiwaæ ikon,
+wielu sesji, tematów, t³a itp. Nie jest zbyt configurowa³ny.
 
 Jego zalet± jest prostota i szybko¶æ.
 
@@ -30,14 +29,15 @@ Jego zalet± jest prostota i szybko¶æ.
 %patch -p0 
 
 %build
-make RPM_OPT_FLAGS="$RPM_OPT_FLAGS"
-(cd goodies;make RPM_OPT_FLAGS="$RPM_OPT_FLAGS")
+make
+make -C goodies
 
 gzip -9 README
  
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_prefix}/bin
+
 make DESTDIR=$RPM_BUILD_ROOT install
 
 (cd goodies;install -s {xaw,gtk}-{panel,palette,switch} $RPM_BUILD_ROOT/%{_prefix}/bin)
