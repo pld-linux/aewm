@@ -2,7 +2,7 @@ Summary:	AEWM - the ascetic window manager
 Summary(pl):	AEWM - "ascetyczny" zarz±dca okien
 Name:		aewm
 Version:	1.2.3
-Release:	2
+Release:	3
 License:	MIT
 Group:		X11/Window Managers
 Source0:	http://www.red-bean.com/~decklin/aewm/%{name}-%{version}.tar.gz
@@ -13,7 +13,7 @@ Patch0:		%{name}-xft.patch
 Patch1:		%{name}-amd64.patch
 URL:		http://www.red-bean.com/~decklin/aewm/
 BuildRequires:	gtk+-devel
-BuildRequires:	lesstif-devel
+BuildRequires:	openmotif-devel
 BuildRequires:	xft-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
