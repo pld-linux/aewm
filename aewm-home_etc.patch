@@ -1,0 +1,37 @@
+diff -Nru aewm-1.2.2/clients/lib/launch.c aewm-1.2.2.new/clients/lib/launch.c
+--- aewm-1.2.2/clients/lib/launch.c	Sat Nov 23 23:41:14 2002
++++ aewm-1.2.2.new/clients/lib/launch.c	Sat Mar 22 18:11:25 2003
+@@ -69,9 +69,13 @@
+ {
+     char defrc_buf[BUF_SIZE];
+     FILE *rc;
+-
++    char *config_dir = getenv("CONFIG_DIR");
++    
+     if (rcfile && (rc = fopen(rcfile, "r"))) goto opened;
+-    snprintf(defrc_buf, sizeof defrc_buf, "%s/.aewm/clientsrc", getenv("HOME"));
++    if (config_dir)
++        snprintf(defrc_buf, sizeof defrc_buf, "%s/aewm/clientsrc", config_dir);
++    else
++        snprintf(defrc_buf, sizeof defrc_buf, "%s/.aewm/clientsrc", getenv("HOME"));
+     if ((rc = fopen(defrc_buf, "r"))) goto opened;
+     if ((rc = fopen(DEF_RC, "r"))) goto opened;
+ 
+diff -Nru aewm-1.2.2/init.c aewm-1.2.2.new/init.c
+--- aewm-1.2.2/init.c	Sun Nov 24 00:02:51 2002
++++ aewm-1.2.2.new/init.c	Sat Mar 22 18:09:32 2003
+@@ -277,9 +277,13 @@
+ {
+     char defrc_buf[BUF_SIZE];
+     FILE *rc;
++	char *config_dir = getenv("CONFIG_DIR");
+ 
+     if (rcfile && (rc = fopen(rcfile, "r"))) goto opened;
+-    snprintf(defrc_buf, sizeof defrc_buf, "%s/.aewm/aewmrc", getenv("HOME"));
++    if (config_dir)
++        snprintf(defrc_buf, sizeof defrc_buf, "%s/aewm/aewmrc", config_dir);
++    else
++        snprintf(defrc_buf, sizeof defrc_buf, "%s/.aewm/aewmrc", getenv("HOME"));
+     if ((rc = fopen(defrc_buf, "r"))) goto opened;
+     if ((rc = fopen(DEF_RC, "r"))) goto opened;
+ 
