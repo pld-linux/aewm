@@ -5,7 +5,7 @@ Version:	0.9.5
 Release:	1
 Copyright:	Freely distributable
 Group:		X11/Window Managers
-Group(pl):	X11/Menad¿ero Onkien
+Group(pl):	X11/Zarz±dcy Okien
 Source:		http://members.home.com/decklin/%name/%{name}-%{version}.tar.gz
 Source1:	aewm.desktop
 URL:		http://members.home.com/decklin/aewm/
