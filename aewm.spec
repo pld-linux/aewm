@@ -1,7 +1,7 @@
 Summary:	AEWM - the ascetic window manager
 Summary(pl):	AEWM - "ascetyczny" menad¿er okien
 Name:		aewm
-Version:	0.9.5
+Version:	0.9.6
 Release:	1
 Copyright:	Freely distributable
 Group:		X11/Window Managers
@@ -9,7 +9,6 @@ Group(pl):	X11/Zarz±dcy Okien
 Source:		http://members.home.com/decklin/%name/%{name}-%{version}.tar.gz
 Source1:	aewm.desktop
 URL:		http://members.home.com/decklin/aewm/
-Patch:		%{name}-DESTDIR.patch
 BuildRequires:	gtk+-devel
 BuildRequires:	XFree86-devel
 Buildroot:	/tmp/%{name}-%{version}-root
@@ -27,7 +26,6 @@ Jego zalet± jest prostota i szybko¶æ.
 
 %prep
 %setup -q
-%patch -p0 
 
 %build
 make
@@ -38,9 +36,11 @@ gzip -9 README
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_prefix}/bin
+install -d $RPM_BUILD_ROOT%{_mandir}/man1
 install -d $RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
 
-make DESTDIR=$RPM_BUILD_ROOT install
+install -s aewm $RPM_BUILD_ROOT%{_prefix}/bin
+install aewm.1x $RPM_BUILD_ROOT%{_mandir}/man1/
 
 (cd goodies;install -s {xaw,gtk}-{panel,palette,switch} $RPM_BUILD_ROOT/%{_prefix}/bin)
 (cd goodies; install -s gtk-palette2 $RPM_BUILD_ROOT%{_prefix}/bin)
