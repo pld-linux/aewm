@@ -1,8 +1,9 @@
 [Desktop Entry]
 Encoding=UTF-8
-Name=Ascethic Window Maker
-Name[ko]=윈도우 메이커
-Name[pl]=Odchudzony zarządca okien
+Name=AEWM
+Comment=Ascethic Window Maker
+Comment[ko]=윈도우 메이커
+Comment[pl]=Odchudzony zarządca okien
 Exec=aewm
 TryExec=aewm
 # vi: encoding=utf-8
