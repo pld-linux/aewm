@@ -32,12 +32,12 @@ Jego zalet± jest prostota i szybko¶æ.
 %patch0
 
 %build
-%{__make}
-%{__make} -C goodies
+%{__make} CFLAGS="$RPM_OPT_FLAGS"
+%{__make} -C goodies CFLAGS="$RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1 \
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
 	$RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
 
 %{__make} install XROOT=$RPM_BUILD_ROOT%{_prefix}
