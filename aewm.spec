@@ -19,7 +19,7 @@ aewm is a minimal window manager for X11.
 
 %description -l pl
 aewm jet minimalnym zarz±dc± okien dla X11. Nie potrafi obs³ugiwaæ
-ikon, wielu sesji, tematów, t³a itp. Nie jest zbyt konfigurowalny.
+ikon, wielu sesji, motywów, t³a itp. Nie jest zbyt konfigurowalny.
 
 Jego zalet± jest prostota i szybko¶æ.
 
