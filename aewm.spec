@@ -5,6 +5,7 @@ Version:	0.9.6
 Release:	1
 Copyright:	Freely distributable
 Group:		X11/Window Managers
+Group(de):	X11/Fenstermanager
 Group(es):	X11/Administraadores De Ventanas
 Group(fr):	X11/Gestionnaires De Fenêtres
 Group(pl):	X11/Zarz±dcy Okien
@@ -24,7 +25,7 @@ aewm is a minimal window manager for X11.
 
 %description -l pl
 aewm jet minimalnym menad¿erem okien dla X11. Nie potrafi obs³ugiwaæ
-ikon, wielu sesji, tematów, t³a itp. Nie jest zbyt configurowa³ny.
+ikon, wielu sesji, tematów, t³a itp. Nie jest zbyt configurowalny.
 
 Jego zalet± jest prostota i szybko¶æ.
 
