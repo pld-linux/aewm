@@ -1,4 +1,4 @@
-Summary:	AEWM - the ascetic windiw manager
+Summary:	AEWM - the ascetic window manager
 Summary(pl):	AEWM - "ascetyczny" menad¿er okien
 Name:		aewm
 Version:	0.9.5
@@ -7,6 +7,7 @@ Copyright:	Freely distributable
 Group:		X11/Window Managers
 Group(pl):	X11/Menad¿ero Onkien
 Source:		http://members.home.com/decklin/%name/%{name}-%{version}.tar.gz
+Source2:	aewm.desktop
 URL:		http://members.home.com/decklin/aewm/
 Patch:		%{name}-DESTDIR.patch
 BuildRequires:	gtk+-devel
@@ -37,11 +38,14 @@ gzip -9 README
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_prefix}/bin
+install -d $RPM_BUILD_ROOT%datedir}/gnome/wm-properties
 
 make DESTDIR=$RPM_BUILD_ROOT install
 
 (cd goodies;install -s {xaw,gtk}-{panel,palette,switch} $RPM_BUILD_ROOT/%{_prefix}/bin)
 (cd goodies; install -s gtk-palette2 $RPM_BUILD_ROOT%{_prefix}/bin)
+
+install %{SOURCE1} $RPM_BUILD_ROOT%datedir}/gnome/wm-properties
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -52,3 +56,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/aewm
 %attr(755,root,root) %{_bindir}/xaw-*
 %attr(755,root,root) %{_bindir}/gtk-*
+%{_datadir}/gnome/wm-properties/aewm.desktop
