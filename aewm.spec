@@ -27,7 +27,8 @@ Jego zalet± jest prostota i szybko¶æ.
 %setup -q
 
 %build
-%{__make} CFLAGS="%{rpmcflags}"
+%{__make} \
+	CFLAGS="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
