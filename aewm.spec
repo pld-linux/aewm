@@ -38,6 +38,13 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_wmpropsdir}}
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT/%{_wmpropsdir}
+rm -f $RPM_BUILD_ROOT/%{_mandir}/man1/{aemenu-*,aepanel-*,aesession.*,set-gnome-pda.*}
+echo ".so aeclients.1x" > $RPM_BUILD_ROOT/%{_mandir}/man1/aemenu-gtk.1x
+echo ".so aeclients.1x" > $RPM_BUILD_ROOT/%{_mandir}/man1/aemenu-xaw.1x
+echo ".so aeclients.1x" > $RPM_BUILD_ROOT/%{_mandir}/man1/aepanel-gtk.1x
+echo ".so aeclients.1x" > $RPM_BUILD_ROOT/%{_mandir}/man1/aepanel-xaw.1x
+echo ".so aeclients.1x" > $RPM_BUILD_ROOT/%{_mandir}/man1/aesession.1x
+echo ".so aeclients.1x" > $RPM_BUILD_ROOT/%{_mandir}/man1/set-gnome-pda.1x
 
 gzip -9nf README ChangeLog
 
