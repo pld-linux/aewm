@@ -32,7 +32,7 @@ Jego zalet± jest prostota i szybko¶æ.
 %patch0
 
 %build
-make
+%{__make}
 %{__make} -C goodies
 
 %install
