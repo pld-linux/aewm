@@ -9,8 +9,8 @@ Source0:	http://www.red-bean.com/~decklin/aewm/%{name}-%{version}.tar.gz
 # Source0-md5:	94fa24a6b83652bdb9d802be8cfcf048
 Source1:	%{name}.desktop
 URL:		http://www.red-bean.com/~decklin/aewm/
-BuildRequires:	gtk+-devel
 BuildRequires:	glibc-devel
+BuildRequires:	gtk+-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_wmpropsdir	/usr/share/wm-properties
@@ -34,7 +34,10 @@ Jego zalet± jest prostota i szybko¶æ.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_wmpropsdir}}
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT XROOT=%{_prefix} MANDIR=$RPM_BUILD_ROOT%{_mandir}/man1
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	XROOT=%{_prefix} \
+	MANDIR=$RPM_BUILD_ROOT%{_mandir}/man1
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/{aemenu-*,aepanel-*,aesession.*,set-gnome-pda.*}
