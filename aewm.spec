@@ -1,24 +1,23 @@
 Summary:	AEWM - the ascetic window manager
 Summary(pl):	AEWM - "ascetyczny" menad¿er okien
 Name:		aewm
-Version:	0.9.6
+Version:	1.1.1
 Release:	1
-Copyright:	Freely distributable
+License:	GPL
 Group:		X11/Window Managers
 Group(de):	X11/Fenstermanager
 Group(es):	X11/Administraadores De Ventanas
 Group(fr):	X11/Gestionnaires De Fenêtres
 Group(pl):	X11/Zarz±dcy Okien
-Source0:	http://members.home.com/decklin/%name/%{name}-%{version}.tar.gz
+Source0:	http://www.red-bean.com/~decklin/aewm/%{name}-%{version}.tar.gz
 Source1:	%{name}.desktop
-Patch0:		%{name}-Makefile.patch
-URL:		http://members.home.com/decklin/aewm/
+URL:		http://www.red-bean.com/%7Edecklin/aewm/
 BuildRequires:	gtk+-devel
 BuildRequires:	glibc-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define	_prefix	/usr/X11R6
-%define	_mandir	/usr/X11R6/man
+%define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
 
 %description
 aewm is a minimal window manager for X11.
@@ -32,21 +31,18 @@ Jego zalet± jest prostota i szybko¶æ.
 %prep
 %setup -q
 
-%patch0
-
 %build
-%{__make} CFLAGS="$RPM_OPT_FLAGS"
-%{__make} -C goodies CFLAGS="$RPM_OPT_FLAGS"
+%{__make} CFLAGS="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS}"
+%{__make} -C goodies CFLAGS="%{?debug:-O -g}%{!?debug:$RPM_OPT_FLAGS}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1} \
 	$RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
 
-%{__make} install XROOT=$RPM_BUILD_ROOT%{_prefix}
+%{__make} install DESTDIR=$RPM_BUILD_ROOT
 
-(cd goodies;install -s {xaw,gtk}-{panel,palette,switch} $RPM_BUILD_ROOT/%{_bindir})
-(cd goodies; install -s gtk-palette2 $RPM_BUILD_ROOT%{_bindir})
+(cd goodies; install {xaw,gtk}-{panel,palette,switch} $RPM_BUILD_ROOT/%{_bindir})
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
 
@@ -58,7 +54,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README.gz
-%attr(755,root,root) %{_bindir}/aewm
-%attr(755,root,root) %{_bindir}/xaw-*
-%attr(755,root,root) %{_bindir}/gtk-*
+%attr(755,root,root) %{_bindir}/*
+%{_mandir}/man1/*
 %{_datadir}/gnome/wm-properties/aewm.desktop
