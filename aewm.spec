@@ -8,12 +8,16 @@ Group:		X11/Window Managers
 Group(pl):	X11/Zarz±dcy Okien
 Source:		http://members.home.com/decklin/%name/%{name}-%{version}.tar.gz
 Source1:	aewm.desktop
+Patch0:		aewm-Makefile.patch
 URL:		http://members.home.com/decklin/aewm/
 BuildRequires:	gtk+-devel
+BuildRequires:	glibc-devel
+BuildRequires:	glib-devel
 BuildRequires:	XFree86-devel
 Buildroot:	/tmp/%{name}-%{version}-root
 
 %define	_prefix	/usr/X11R6
+%define	_mandir	/usr/X11R6/man
 
 %description
 aewm is a minimal window manager for X11. 
@@ -27,6 +31,8 @@ Jego zalet± jest prostota i szybko¶æ.
 %prep
 %setup -q
 
+%patch0
+
 %build
 make
 make -C goodies
@@ -39,8 +45,7 @@ install -d $RPM_BUILD_ROOT%{_prefix}/bin
 install -d $RPM_BUILD_ROOT%{_mandir}/man1
 install -d $RPM_BUILD_ROOT%{_datadir}/gnome/wm-properties
 
-install -s aewm $RPM_BUILD_ROOT%{_prefix}/bin
-install aewm.1x $RPM_BUILD_ROOT%{_mandir}/man1/
+make install XROOT=$RPM_BUILD_ROOT%{_prefix}
 
 (cd goodies;install -s {xaw,gtk}-{panel,palette,switch} $RPM_BUILD_ROOT/%{_prefix}/bin)
 (cd goodies; install -s gtk-palette2 $RPM_BUILD_ROOT%{_prefix}/bin)
