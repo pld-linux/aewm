@@ -8,6 +8,7 @@ Group:		X11/Window Managers
 Source0:	http://www.red-bean.com/~decklin/aewm/%{name}-%{version}.tar.gz
 # Source0-md5:	94fa24a6b83652bdb9d802be8cfcf048
 Source1:	%{name}.desktop
+Source2:	%{name}-xsession.desktop
 URL:		http://www.red-bean.com/~decklin/aewm/
 BuildRequires:	gtk+-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -32,7 +33,9 @@ Jego zalet± jest prostota i szybko¶æ.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_wmpropsdir}}
+install -d \
+	$RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_wmpropsdir}} \
+	$RPM_BUILD_ROOT%{_datadir}/xsessions
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
@@ -40,6 +43,8 @@ install -d $RPM_BUILD_ROOT{%{_bindir},%{_mandir}/man1,%{_wmpropsdir}}
 	MANDIR=$RPM_BUILD_ROOT%{_mandir}/man1
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
+install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
+
 rm -f $RPM_BUILD_ROOT%{_mandir}/man1/{aemenu-*,aepanel-*,aesession.*,set-gnome-pda.*}
 echo ".so aeclients.1x" > $RPM_BUILD_ROOT%{_mandir}/man1/aemenu-gtk.1x
 echo ".so aeclients.1x" > $RPM_BUILD_ROOT%{_mandir}/man1/aemenu-xaw.1x
@@ -55,5 +60,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README ChangeLog
 %attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
+%{_datadir}/xsessions/%{name}.desktop
 %{_wmpropsdir}/*
+%{_mandir}/man1/*
