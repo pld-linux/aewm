@@ -9,8 +9,12 @@ Source0:	http://www.red-bean.com/~decklin/aewm/%{name}-%{version}.tar.gz
 # Source0-md5:	94fa24a6b83652bdb9d802be8cfcf048
 Source1:	%{name}.desktop
 Source2:	%{name}-xsession.desktop
+Patch0:		%{name}-xft.patch
+Patch0:		%{name}-amd64.patch
 URL:		http://www.red-bean.com/~decklin/aewm/
 BuildRequires:	gtk+-devel
+BuildRequires:	lesstif-devel
+BuildRequires:	xft-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_wmpropsdir	/usr/share/wm-properties
@@ -26,6 +30,10 @@ Jego zalet± jest prostota i szybko¶æ.
 
 %prep
 %setup -q
+%patch0 -p1
+%ifarch amd64
+%patch1 -p1
+%endif
 
 %build
 %{__make} \
