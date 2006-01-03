@@ -8,7 +8,7 @@ diff -ur aewm-1.2.3.orig/src/Makefile aewm-1.2.3/src/Makefile
 -#DEFINES += -DMWM_HINTS
 +DEFINES += -DMWM_HINTS
  
- # Uncomment to add freetype support (requires XFree86 4.0.2 or later).
+ # Uncomment to add Xft support (requires X.Org or XFree86 >= 4.0.2).
  # This depends on -lXext above, even if you have disabled shape support.
 -#DEFINES += -DXFT
 -#EXTRA_INC += `pkg-config --cflags xft`

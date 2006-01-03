@@ -9,17 +9,9 @@ diff -ur aewm-1.2.3.orig/clients/Makefile aewm-1.2.3/clients/Makefile
 -XAWLIBS  = -L$(XROOT)/lib -lX11 -lXt -lXaw
 +X11LIBS  = -L$(XROOT)/lib64 -lX11
 +XAWLIBS  = -L$(XROOT)/lib64 -lX11 -lXt -lXaw
- ifdef USE_OLD_GTK
- GTKPATH  = `gtk-config --cflags` -DUSE_OLD_GTK=$(USE_OLD_GTK)
- GTKLIBS  = `gtk-config --libs`
-Only in aewm-1.2.3/clients: set-gnome-pda
-Only in aewm-1.2.3/clients: set-gnome-pda.o
-Only in aewm-1.2.3/lib: gnome-pda.o
-Only in aewm-1.2.3/lib: parser.o
-Only in aewm-1.2.3/src: aewm
-Only in aewm-1.2.3/src: client.o
-Only in aewm-1.2.3/src: events.o
-Only in aewm-1.2.3/src: init.o
+ GTKPATH  = `pkg-config --cflags gtk+-2.0`
+ GTKLIBS  = `pkg-config --libs gtk+-2.0`
+ 
 diff -ur aewm-1.2.3.orig/src/Makefile aewm-1.2.3/src/Makefile
 --- aewm-1.2.3.orig/src/Makefile	2004-08-10 19:49:42.027105896 +0200
 +++ aewm-1.2.3/src/Makefile	2004-08-10 19:49:54.350232496 +0200
