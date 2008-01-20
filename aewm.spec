@@ -12,20 +12,22 @@ Source2:	%{name}-xsession.desktop
 Patch0:		%{name}-xft.patch
 Patch1:		%{name}-amd64.patch
 URL:		http://www.red-bean.com/~decklin/aewm/
-BuildRequires:	gtk+2-devel
-BuildRequires:	openmotif-devel
-BuildRequires:	xft-devel
+BuildRequires:	gtk+2-devel >= 1:2.0
+BuildRequires:	motif-devel
+BuildRequires:	pkgconfig
+BuildRequires:	xorg-lib-libXft-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_wmpropsdir	/usr/share/wm-properties
 
 %description
-aewm is a minimal window manager for X11.
+aewm is a minimal window manager for X11. It doesn't support icons,
+multiple sessions, themes or so; it isn't even highly customizable.
+Its main benefits are simplicity and speed.
 
 %description -l pl.UTF-8
 aewm jet minimalnym zarządcą okien dla X11. Nie potrafi obsługiwać
 ikon, wielu sesji, motywów, tła itp. Nie jest zbyt konfigurowalny.
-
 Jego zaletą jest prostota i szybkość.
 
 %prep
@@ -37,7 +39,9 @@ Jego zaletą jest prostota i szybkość.
 
 %build
 %{__make} \
-	CFLAGS="%{rpmcflags}"
+	CC="%{__cc}" \
+	CFLAGS="%{rpmcflags}" \
+	XROOT=%{_prefix}
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -69,8 +73,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/X11/%{name}/*rc
 %doc README NEWS TODO
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/X11/%{name}/*rc
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/xsessions/%{name}.desktop
 %{_wmpropsdir}/*
