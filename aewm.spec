@@ -2,7 +2,7 @@ Summary:	AEWM - the ascetic window manager
 Summary(pl.UTF-8):	AEWM - "ascetyczny" zarządca okien
 Name:		aewm
 Version:	1.3.1
-Release:	1
+Release:	2
 License:	MIT
 Group:		X11/Window Managers
 Source0:	http://www.red-bean.com/~decklin/aewm/%{name}-%{version}.tar.gz
@@ -16,9 +16,10 @@ BuildRequires:	gtk+2-devel >= 1:2.0
 BuildRequires:	motif-devel
 BuildRequires:	pkgconfig
 BuildRequires:	xorg-lib-libXft-devel
+Conflicts:	filesystem < 3.0-20
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_wmpropsdir	/usr/share/wm-properties
+%define		_wmpropsdir	/usr/share/gnome/wm-properties
 
 %description
 aewm is a minimal window manager for X11. It doesn't support icons,
