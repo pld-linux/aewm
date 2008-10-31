@@ -2,7 +2,7 @@ Summary:	AEWM - the ascetic window manager
 Summary(pl.UTF-8):	AEWM - "ascetyczny" zarządca okien
 Name:		aewm
 Version:	1.3.1
-Release:	2
+Release:	3
 License:	MIT
 Group:		X11/Window Managers
 Source0:	http://www.red-bean.com/~decklin/aewm/%{name}-%{version}.tar.gz
@@ -75,6 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README NEWS TODO
+%dir %{_sysconfdir}/X11/%{name}
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/X11/%{name}/*rc
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/xsessions/%{name}.desktop
