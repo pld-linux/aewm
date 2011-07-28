@@ -1,8 +1,12 @@
+#
+# Conditional build:
+%bcond_with	gnome		# build with support for GNOME2 wm-properties
+#
 Summary:	AEWM - the ascetic window manager
 Summary(pl.UTF-8):	AEWM - "ascetyczny" zarządca okien
 Name:		aewm
 Version:	1.3.1
-Release:	4
+Release:	5
 License:	MIT
 Group:		X11/Window Managers
 Source0:	http://www.red-bean.com/~decklin/aewm/%{name}-%{version}.tar.gz
@@ -56,7 +60,7 @@ install -d \
 	XROOT=%{_prefix} \
 	MANDIR=$RPM_BUILD_ROOT%{_mandir}/man1
 
-install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}
+%{?with_gnome:install %{SOURCE1} $RPM_BUILD_ROOT%{_wmpropsdir}}
 install %{SOURCE2} $RPM_BUILD_ROOT%{_datadir}/xsessions/%{name}.desktop
 install src/aewmrc.sample $RPM_BUILD_ROOT%{_sysconfdir}/X11/%{name}/aewmrc
 install clients/clientsrc.sample $RPM_BUILD_ROOT%{_sysconfdir}/X11/%{name}/clientsrc
@@ -79,5 +83,5 @@ rm -rf $RPM_BUILD_ROOT
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/X11/%{name}/*rc
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/xsessions/%{name}.desktop
-%{_wmpropsdir}/*
+%{?with_gnome:%{_wmpropsdir}/*}
 %{_mandir}/man1/*
